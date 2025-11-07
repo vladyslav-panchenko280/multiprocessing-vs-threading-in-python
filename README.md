@@ -1,38 +1,38 @@
-# Паралельна обробка текстових файлів
+# Parallel Processing of Text Files
 
-Програма для пошуку ключових слів у текстових файлах з використанням багатопотокового та багатопроцесорного підходів.
+An application for searching keywords in text files using multithreading and multiprocessing approaches.
 
-## Використання
+## Usage
 
 ```bash
 python main.py --keywords ERROR WARNING --workers 4
 ```
 
-## Параметри
+## Parameters
 
-- `--keywords` — ключові слова для пошуку (обов'язково)
-- `--workers` — кількість воркерів (за замовчуванням: 4)
-- `--mode` — режим: `threading` або `multiprocessing` (за замовчуванням: threading)
-- `--dir` — директорія з файлами (за замовчуванням: ./logs)
-- `--sample` — обмежити кількість файлів для тестування
-- `--case-sensitive` — враховувати регістр
-- `--glob` — шаблон файлів (за замовчуванням: *.log)
+- `--keywords` — keywords to search for (required)
+- `--workers` — number of workers (default: 4)
+- `--mode` — mode: `threading` or `multiprocessing` (default: threading)
+- `--dir` — directory with files (default: ./logs)
+- `--sample` — limit the number of files for testing
+- `--case-sensitive` — enable case-sensitive search
+- `--glob` — file pattern (default: *.log)
 
-## Приклади
+## Examples
 
 ```bash
-# Threading з 4 потоками
+# Threading with 4 threads
 python main.py --keywords Macintosh Windows --workers 4 --mode threading
 
-# Multiprocessing з 8 процесами
+# Multiprocessing with 8 processes
 python main.py --keywords ERROR WARN --workers 8 --mode multiprocessing
 
-# Обробка 50 файлів для швидкого тесту
+# Process 50 files for a quick test
 python main.py --keywords Linux --sample 50
 ```
 
-## Результат
+## Result
 
-Програма повертає словник, де ключ — ключове слово, значення — список файлів, де воно знайдено.
-Виводиться час виконання для порівняння продуктивності різних підходів.
+The application returns a dictionary where each key is a keyword and the value is a list of files where it was found.
+The execution time is displayed to compare the performance of different approaches.
 

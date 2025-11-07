@@ -1,6 +1,13 @@
-# Parallel Processing of Text Files
+# Parallel Processing of Log Files
 
-An application for searching keywords in text files using multithreading and multiprocessing approaches.
+An CLI application for searching keywords in log files using multithreading and multiprocessing approaches. The tool lets you benchmark both strategies on the same dataset to understand how workload type and hardware affect throughput.
+
+## Threading vs Multiprocessing
+
+- **Threading** shares memory inside one process. It works best for I/O-bound tasks (reading files, waiting on network or disk), has lower startup overhead, and makes sharing data between workers straightforward.
+- **Multiprocessing** runs each worker in a separate process. It avoids the Global Interpreter Lock (GIL), so it's preferred for CPU-bound workloads or heavy text processing, but comes with higher startup costs and additional inter-process communication overhead.
+- Use `--mode threading` to quickly scan large collections of log files stored on disk or network shares.
+- Use `--mode multiprocessing` when keyword matching involves CPU-heavy parsing, or when you want better isolation between workers.
 
 ## Usage
 
